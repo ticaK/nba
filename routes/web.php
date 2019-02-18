@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/teams', 'TeamsController@index');
+Route::get('/teams/{id}','TeamsController@show');
+
+
+Route::get('/players', 'PlayerController@index');
+Route::get('/players/{id}','PlayerController@show');
+
+Route::get('/register',['as'=>'show-register','uses'=>'RegisterController@create']);
+Route::post('/register',['as'=>'register','uses'=>'RegisterController@store']);

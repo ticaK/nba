@@ -23,6 +23,6 @@ class RegisterController extends Controller
         
         $user = User::create($data);
         auth()->login($user);
-        return redirect('/teams');
+        return redirect()->route('Teams');
     }
 }

@@ -11,10 +11,13 @@
 
 
             <h4>Players:</h4>
+            <ul class="list-group">
             @foreach($team->players as $player)
-            <div class="p-4 alert alert-success">
-                Player:<a href="/players/{{$player->id}}">{{$player->first_name}}</a> <br>    
-            </div>
+            <li class="list-group-item">
+                <a href="/players/{{$player->id}}">
+                    {{$player->first_name}} {{$player->last_name}}
+                </a> 
+            </li>  
             @endforeach
            
 @endsection 

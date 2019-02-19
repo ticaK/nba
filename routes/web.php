@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -15,12 +16,35 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/teams', 'TeamsController@index');
-Route::get('/teams/{id}','TeamsController@show');
+// Route::get('/', 'TeamsController@index')->name('Teams');
 
 
-Route::get('/players', 'PlayerController@index');
-Route::get('/players/{id}','PlayerController@show');
+// Route::get('/teams', 'TeamsController@index')->name('Teams');
+// Route::get('/teams/{id}','TeamsController@show');
 
-Route::get('/register',['as'=>'show-register','uses'=>'RegisterController@create']);
-Route::post('/register',['as'=>'register','uses'=>'RegisterController@store']);
+
+// Route::get('/players', 'PlayerController@index')->name('Players');
+// Route::get('/players/{id}','PlayerController@show');
+
+// Route::get('/register',['as'=>'show-register','uses'=>'RegisterController@create']);
+// Route::post('/register',['as'=>'register','uses'=>'RegisterController@store']);
+
+// Route::get('/logout',['as'=>'logout','uses'=>'LoginController@logout']);
+
+// Route::get('/login',['as'=>'show-login','uses'=>'LoginController@create']);
+// Route::post('/login',['as'=>'login','uses'=>'LoginController@store']);
+
+Route::group(['middleware'=>['guest']],function(){
+    Route::get('/register',['as'=>'show-register','uses'=>'RegisterController@create']);
+    Route::post('/register',['as'=>'register','uses'=>'RegisterController@store']);
+    Route::get('/login',['as'=>'show-login','uses'=>'LoginController@create']);
+    Route::post('/login',['as'=>'login','uses'=>'LoginController@store']);
+});
+
+Route::group(['middleware'=>['auth']],function(){
+    Route::get('/teams', 'TeamsController@index')->name('Teams');
+    Route::get('/teams/{id}','TeamsController@show');
+    Route::get('/logout',['as'=>'logout','uses'=>'LoginController@logout']);
+    Route::get('/players', 'PlayerController@index')->name('Players');
+    Route::get('/players/{id}','PlayerController@show');
+});

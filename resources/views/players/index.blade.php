@@ -1,5 +1,13 @@
 @extends('layouts.master')
 
 @section('content')
-{{$player->first_name}}
+    <ul class = "list-group">
+        @foreach($players as $player)
+            <li class = "list-group-item">
+                <a href = "/players/{{$player->id}}">
+                    {{$player->first_name}} {{$player->last_name}}
+                </a><br>
+            </li>
+        @endforeach
+    </ul>
 @endsection

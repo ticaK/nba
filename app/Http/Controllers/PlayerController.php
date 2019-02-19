@@ -9,11 +9,11 @@ use App\Player;
 
 class PlayerController extends Controller
 {
-    // public function index()
-    // {
-    //     $players = Player::all();
-    //     return view('teams.index', [ 'teams' => $teams ]);
-    // }
+    public function index()
+    {
+        $players = Player::all();
+        return view('players.index', [ 'players' => $players]);
+    }
 
     public function show($id)
     {

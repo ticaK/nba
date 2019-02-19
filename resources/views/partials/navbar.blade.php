@@ -18,6 +18,7 @@
               <a class="btn btn-outline-primary" href="{{ route('logout') }}">Logout</a>
             @else
                <a class="btn btn-outline-primary" href="{{ route('show-register') }}">Sign up</a>
+
             @endif
           </form>
         </div>

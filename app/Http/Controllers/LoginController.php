@@ -18,10 +18,18 @@ class LoginController extends Controller
         ]);
         if (!auth()->attempt($request->only(['email', 'password']))) {
             return back()->withErrors([
-                'mesage' => 'Wrong email or password...'
+                'message' => 'Wrong email or password...'
+            ]);
+
+        } else if (auth()->user()->is_verified) {
+            return redirect()->route('Teams');
+
+        } else {
+            return back()->withErrors([
+                'message' => 'You are NOT VERIFIED!'
             ]);
         }
-        return redirect()->route('Teams');
+
     }
     public function logout(){
         auth()->logout();

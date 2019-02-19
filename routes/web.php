@@ -47,4 +47,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/logout',['as'=>'logout','uses'=>'LoginController@logout']);
     Route::get('/players', 'PlayerController@index')->name('Players');
     Route::get('/players/{id}','PlayerController@show');
+    Route::post('teams/{id}/comments','TeamsController@addComment')
+    ->name('teams.comment');
+
 });

@@ -48,6 +48,6 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/players', 'PlayerController@index')->name('players');
     Route::get('/players/{id}','PlayerController@show');
     Route::post('teams/{id}/comments','TeamsController@addComment')
-    ->name('teams.comment');
+    ->name('teams.comment')->middleware('content');
 
 });

@@ -22,7 +22,6 @@ class RegisterController extends Controller
         $data['password'] = bcrypt($data['password']);
         
         $user = User::create($data);
-        // auth()->login($user);
         return redirect()->route('show-login');
     }
 }

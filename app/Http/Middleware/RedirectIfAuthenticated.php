@@ -18,9 +18,8 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect()->route('Teams');
+            return redirect()->route('teams');
         }
-
         return $next($request);
     }
 }

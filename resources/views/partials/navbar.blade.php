@@ -6,10 +6,10 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="{{route('Teams')}}">Teams</a>
+              <a class="nav-link" href="{{route('teams')}}">Teams</a>
             </li>
             <li class="nav-item">
-                    <a class="nav-link" href="{{route('Players')}}">Players</a>
+                    <a class="nav-link" href="{{route('players')}}">Players</a>
                 </li>
           </ul>
           <form class="form-inline mt-2 mt-md-0">

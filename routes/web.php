@@ -42,10 +42,10 @@ Route::group(['middleware'=>['guest']],function(){
 });
 
 Route::group(['middleware'=>['auth']],function(){
-    Route::get('/teams', 'TeamsController@index')->name('Teams');
-    Route::get('/teams/{id}','TeamsController@show');
+    Route::get('/teams', 'TeamsController@index')->name('teams');
+    Route::get('/teams/{id}','TeamsController@show')->name('single-team');
     Route::get('/logout',['as'=>'logout','uses'=>'LoginController@logout']);
-    Route::get('/players', 'PlayerController@index')->name('Players');
+    Route::get('/players', 'PlayerController@index')->name('players');
     Route::get('/players/{id}','PlayerController@show');
     Route::post('teams/{id}/comments','TeamsController@addComment')
     ->name('teams.comment');

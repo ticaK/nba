@@ -9,17 +9,18 @@
 
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="text" class="form-control" id="email" name="email"/>
+            <input type="email" class="form-control {{$errors->has('email')? 'is-invalid' : ''}}"  id="email" name="email" value ="{{old('email')}}"/>
             @include('partials.invalid-feedback', ['field' => 'email'])
         </div>
 
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password"/>
+            <input type="password" class="form-control {{$errors->has('password')? 'is-invalid' : ''}}"  id="password" name="password"/>
             @include('partials.invalid-feedback', ['field' => 'password'])
         </div>
 
         <div class="form-group">
+            <input type="hidden" class="form-control {{$errors->has('message')? 'is-invalid' : ''}}"  id="message" name="message"/>
             @include('partials.invalid-feedback', ['field' => 'message'])
         </div>
 
@@ -28,4 +29,7 @@
         </div>
 
     </form>
+   
+
+
 @endsection

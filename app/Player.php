@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Player extends Model
 {
-    public function teams(){
+    public function team(){
         return $this->belongsTo(Team::class); 
     }
 }

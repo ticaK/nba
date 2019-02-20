@@ -16,21 +16,25 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
-        if (!auth()->attempt($request->only(['email', 'password']))) {
-            return back()->withErrors([
-                'message' => 'Wrong email or password...'
-            ]);
-
-        } else if (auth()->user()->is_verified) {
-            return redirect()->route('Teams');
-
-        } else {
-            return back()->withErrors([
-                'message' => 'You are NOT VERIFIED!'
-            ]);
+        if(!auth()->attempt(request(['email', 'password']))) {
+            return back()->withErrors(['message' => 'Bad credentials. Please try again']);
         }
-
+        return redirect()->route('teams');
     }
+
+
+    
+
+        // } else if (auth()->user()->is_verified) {
+        //     return redirect()->route('teams');
+
+        // } else {
+        //     return back()->withErrors([
+        //         'message' => 'You are NOT VERIFIED!'
+        //     ]);
+        // }
+
+    
     public function logout(){
         auth()->logout();
         return redirect()->route('login');

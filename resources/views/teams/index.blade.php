@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+@section('title','Teams')
 
 @section('content')
     @foreach ($teams as $team)

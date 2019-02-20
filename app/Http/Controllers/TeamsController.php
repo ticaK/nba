@@ -7,6 +7,7 @@ use App\Team;
 use App\Player;
 use App\Comment;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\CommentReceived;
 
 
 use App\Http\Requests\CreateCommentRequest;
@@ -28,12 +29,22 @@ class TeamsController extends Controller
 
     public function addComment(CreateCommentRequest $request,$id)
     {
-        Comment::create([
+        $comment = Comment::create([
             'team_id'=>$id,
             'user_id'=>Auth::user()->id,
             'content'=>$request->content     
         ]);
+        if($comment->team){
+            \Mail::to($comment->team)->send(new CommentReceived(
+                $comment->team, $comment
+            ));
+        }
         return redirect()->back();
     }
+
+
+
+    
+
 
 }

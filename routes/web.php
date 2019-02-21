@@ -49,5 +49,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/players/{id}','PlayerController@show');
     Route::post('teams/{id}/comments','TeamsController@addComment')
     ->name('teams.comment')->middleware('content');
+    Route::get('/news','NewsController@index')->name('news');
+    Route::get('/news/{id}','NewsController@show');
 
 });

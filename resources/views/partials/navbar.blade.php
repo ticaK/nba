@@ -10,7 +10,10 @@
             </li>
             <li class="nav-item">
                     <a class="nav-link" href="{{route('players')}}">Players</a>
-                </li>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('news')}}">News</a>
+           </li>            
           </ul>
           <form class="form-inline mt-2 mt-md-0">
             @if(auth()->check())

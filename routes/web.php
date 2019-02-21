@@ -51,5 +51,9 @@ Route::group(['middleware'=>['auth']],function(){
     ->name('teams.comment')->middleware('content');
     Route::get('/news','NewsController@index')->name('news');
     Route::get('/news/{id}','NewsController@show');
+    Route::get('/create','NewsController@create');
+    Route::post('/create','NewsController@store')->name('create-news');
+
+
 
 });

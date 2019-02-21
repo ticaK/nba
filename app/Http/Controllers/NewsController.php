@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Neww;
+use App\Team;
+
 
 class NewsController extends Controller
 {
@@ -16,4 +18,32 @@ class NewsController extends Controller
         $new = Neww::find($id);
         return view('news.show')->with('new',$new);
     }
+
+    public function create(){
+        $teams = Team::all();        
+        return view('news.create',compact('teams'));
+    }
+    
+
+    public function store(Request $request)
+    {
+            $request->validate([
+                'title'=>'required',
+                'content'=>'required',
+                'teams' => 'required|array'
+
+               
+            ]);
+            $news = Neww::create(
+                array_merge(
+                ($request->only('title','content')),
+                ['user_id'=>auth()->user()->id]
+                )
+            );
+
+        return redirect('/news');
+        
+    }
+
+
 }

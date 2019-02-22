@@ -46,9 +46,6 @@ class NewsController extends Controller
                 ['user_id'=>auth()->user()->id]
                 )
             );
-            // 'user_id' => !empty(auth()->user())
-            // ? auth()->user()->id
-            // : 1 ni ovako ne radiiii
        $news->teams()->attach(request('teams'));
         return redirect('/news');
     }

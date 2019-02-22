@@ -9,6 +9,7 @@ use App\Team;
 
 class NewsController extends Controller
 {
+
     public function index(){
         $news = Neww::orderBy('created_at','desc')->paginate(10);
         return view('news.index',['news'=>$news]);
@@ -32,22 +33,24 @@ class NewsController extends Controller
 
     public function store(Request $request)
     {
+        
             $request->validate([
                 'title'=>'required',
                 'content'=>'required',
-                'teams' => 'required|array'
-
+                'teams'=>'required|array'
                
             ]);
             $news = Neww::create(
                 array_merge(
-                ($request->only('title','content')),
+                $request->only('title','content'),
                 ['user_id'=>auth()->user()->id]
                 )
             );
-
+            // 'user_id' => !empty(auth()->user())
+            // ? auth()->user()->id
+            // : 1 ni ovako ne radiiii
+       $news->teams()->attach(request('teams'));
         return redirect('/news');
-        
     }
 
 

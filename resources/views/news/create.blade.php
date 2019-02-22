@@ -26,8 +26,9 @@
             @include('partials.invalid-feedback',['field'=>'content']) 
         </div>
         </div>
+ 
 
-        @if(count($teams))
+       @if(count($teams))
             <div class="form-group">
                 <label for="teams[]">
                     <strong>Teams</strong>

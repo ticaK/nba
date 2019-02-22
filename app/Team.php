@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Team extends Model
 {
     public function players(){
@@ -13,6 +14,6 @@ class Team extends Model
         return $this->hasMany(Comment::class); 
     }
     public function news(){
-        return $this->hasMany(Neww::class);
+        return $this->belongsToMany(Neww::class);
     }
 }

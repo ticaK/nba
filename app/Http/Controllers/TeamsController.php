@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Team;
 use App\Player;
 use App\Comment;
+use App\Neww;
+
 use Illuminate\Support\Facades\Auth;
 use App\Mail\CommentReceived;
 

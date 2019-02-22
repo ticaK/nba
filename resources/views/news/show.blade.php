@@ -2,6 +2,15 @@
 @section('content')
 
 <h4>{{$new->title}}</h4>
+<small>{{"Ova novost je vezana za timove:"}}</small>
+
+@if(count($new->teams))
+<ul>
+    @foreach($new->teams as $team)
+    <li><a href="/teams/{{$team->id}}">{{ $team->name }}</a></li>
+    @endforeach
+</ul>
+@endif
 <p>{{$new->content}}</p>
 <h5>Autor</h5>
 <p>

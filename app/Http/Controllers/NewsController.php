@@ -13,6 +13,11 @@ class NewsController extends Controller
         $news = Neww::orderBy('created_at','desc')->paginate(10);
         return view('news.index',['news'=>$news]);
     }
+    public function showTeamNews(Team $team){
+        
+        $news = $team->news()->paginate(1); 
+        return view('news.index',compact('news'));
+    }
 
     public function show($id){
         $new = Neww::find($id);

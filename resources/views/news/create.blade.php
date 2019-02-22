@@ -42,13 +42,6 @@
    
         @endif
 
-    @if($message = session('message'))
-  
-     <div class="alert alert-danger" role="alert">
-        {{$message}}
-     </div>
-
-    @endif
         <div class="form-group row">
         <div class="offset-4 col-8">
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -57,4 +50,6 @@
 
     </form>
 
-@endsection
+    
+
+   @endsection

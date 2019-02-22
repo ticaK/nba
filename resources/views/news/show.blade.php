@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('content')
 
+
+
 <h4>{{$new->title}}</h4>
 <small>{{"Ova novost je vezana za timove:"}}</small>
 
@@ -12,7 +14,7 @@
 </ul>
 @endif
 <p>{{$new->content}}</p>
-<h5>Autor</h5>
+<h5>O autoru:</h5>
 <p>
     Name: <strong>{{$new->user->name}}</strong><br>
     Email: <strong>{{$new->user->email}}</strong>

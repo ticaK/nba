@@ -53,8 +53,10 @@ Route::group(['middleware'=>['auth']],function(){
 
     Route::get('/news','NewsController@index')->name('news');
     Route::get('/news/{id}','NewsController@show');
-    Route::get('/create','NewsController@create');
+    Route::get('/create','NewsController@create')->name('show-create');
     Route::post('/create','NewsController@store')->name('create-news');
+    
+
 
 
 

@@ -11,14 +11,16 @@ class NewsController extends Controller
 {
 
     public function index(){
-        $news = Neww::orderBy('created_at','desc')->paginate(10);
-        return view('news.index',['news'=>$news]);
+        $news = Neww::orderBy('created_at','desc')->paginate(10);        
+        return view('news.index',compact('news'));
+
     }
     public function showTeamNews(Team $team){
         
-        $news = $team->news()->paginate(1); 
+        $news = $team->news()->paginate(5); 
         return view('news.index',compact('news'));
     }
+   
 
     public function show($id){
         $new = Neww::find($id);
@@ -47,7 +49,10 @@ class NewsController extends Controller
                 )
             );
        $news->teams()->attach(request('teams'));
-        return redirect('/news');
+
+       return redirect('/news')
+        ->with('message', 'Thank you for publishing article on www.nba.com.');
+        
     }
 
 

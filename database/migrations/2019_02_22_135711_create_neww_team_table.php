@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNewwsTeamsTable extends Migration
+class CreateNewwTeamTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateNewwsTeamsTable extends Migration
      */
     public function up()
     {
-        Schema::create('newws_teams', function (Blueprint $table) {
-            $table->integer('newws_id');
+        Schema::create('neww_team', function (Blueprint $table) {
+            $table->integer('neww_id');
             $table->integer('team_id');
-            $table->primary(['newws_id', 'team_id']);
+            $table->primary(['neww_id', 'team_id']);
 
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ class CreateNewwsTeamsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('newws_teams');
+        Schema::dropIfExists('neww_team');
     }
 }
